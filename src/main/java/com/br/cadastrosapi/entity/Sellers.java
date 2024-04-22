@@ -9,10 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.br.CNPJ;
 import org.hibernate.validator.constraints.br.CPF;
-
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -27,16 +24,12 @@ public class Sellers {
     @NotNull
     private String name;
 
-    private Date dateOfBirth;
-
     @CPF(message = "CPF invalido")
     private String cpf;
-
-    @CNPJ
-    private String cnpj;
 
     @Email
     private String email;
 
-    private ContractType contractType = ContractType.OUT;
+    @NotNull
+    private String contractType;
 }
