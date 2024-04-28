@@ -19,17 +19,17 @@ public class SellersController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Sellers> findById(@PathVariable("id") Long registry) {
+    public ResponseEntity<Sellers> findById(@PathVariable("id") String registry) {
         return service.findById(registry);
     }
 
     @PutMapping("update/{id}")
-    public ResponseEntity<Sellers> update(@PathVariable("id") Long registry, @RequestBody Sellers sellers) {
+    public ResponseEntity<Sellers> update(@PathVariable("id") String registry, @RequestBody Sellers sellers) {
         return service.update(registry, sellers);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") Long registry) {
+    @DeleteMapping("delete/{id}")
+    public void delete(@PathVariable("id") String registry) {
         service.delete(registry);
     }
 }

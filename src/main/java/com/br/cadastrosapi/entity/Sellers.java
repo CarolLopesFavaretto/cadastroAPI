@@ -1,8 +1,6 @@
 package com.br.cadastrosapi.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -18,8 +16,7 @@ import org.hibernate.validator.constraints.br.CPF;
 public class Sellers {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long registry;
+    private String registry;
 
     @NotNull
     private String name;
@@ -31,5 +28,7 @@ public class Sellers {
     private String email;
 
     @NotNull
-    private String contractType;
+    private ContractType contractType;
+
 }
+
