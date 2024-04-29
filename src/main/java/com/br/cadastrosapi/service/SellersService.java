@@ -16,25 +16,23 @@ public class SellersService {
     private SellersRepository repository;
 
     public ResponseEntity<Sellers> save(Sellers sellers) {
+
+        ContractType contractType = sellers.getContractType();
+
+        switch (contractType) {
+            case CLT:
+            case PJ:
+            case OUT:
+                sellers.setRegistry(getRegistry(contractType));
+                return ResponseEntity.ok(repository.save(sellers));
+            default:
+                return ResponseEntity.notFound().build();
+        }
+    }
+
+    private String getRegistry(ContractType contractType) {
         String registry = UUID.randomUUID().toString();
-
-        if (sellers.getContractType() == ContractType.CLT) {
-            registry = registry + "-" + ContractType.CLT;
-            sellers.setRegistry(registry);
-            return ResponseEntity.ok(repository.save(sellers));
-        }
-        else if (sellers.getContractType() == ContractType.PJ) {
-            registry = registry + "-" + ContractType.PJ;
-            sellers.setRegistry(registry);
-            return ResponseEntity.ok(repository.save(sellers));
-        }
-        else if (sellers.getContractType() == ContractType.OUT) {
-            registry = registry + "-" + ContractType.OUT;
-            sellers.setRegistry(registry);
-            return ResponseEntity.ok(repository.save(sellers));
-        }
-        return ResponseEntity.notFound().build();
-
+        return registry + "-" + contractType;
     }
 
 

@@ -21,7 +21,7 @@ public class Sellers {
     @NotNull
     private String name;
 
-    @CPF(message = "CPF invalido")
+    @CPF
     private String cpf;
 
     @Email
