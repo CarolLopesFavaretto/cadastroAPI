@@ -2,6 +2,8 @@ package com.br.cadastrosapi.service;
 
 import com.br.cadastrosapi.entity.ContractType;
 import com.br.cadastrosapi.entity.Sellers;
+import com.br.cadastrosapi.exception.SellersNotFoundException;
+import com.br.cadastrosapi.exception.ContractTypeNotFound;
 import com.br.cadastrosapi.repository.SellersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +28,7 @@ public class SellersService {
                 sellers.setRegistry(getRegistry(contractType));
                 return ResponseEntity.ok(repository.save(sellers));
             default:
-                return ResponseEntity.notFound().build();
+                throw new ContractTypeNotFound("Tipo de contrato invalido");
         }
     }
 
@@ -38,7 +40,7 @@ public class SellersService {
 
     public ResponseEntity<Sellers> findById(String registry) {
         return repository.findById(registry).map(sellers -> ResponseEntity.ok().body(sellers))
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() -> new SellersNotFoundException("Vendedor nao encontrado"));
     }
 
     public ResponseEntity<Sellers> update(String registry, Sellers sellers) {
@@ -50,7 +52,7 @@ public class SellersService {
                     newSellers.setEmail(sellers.getEmail());
                     newSellers.setContractType(sellers.getContractType());
                     return ResponseEntity.ok().body(repository.save(newSellers));
-                }).orElse(ResponseEntity.notFound().build());
+                }).orElseThrow(() -> new SellersNotFoundException("Vendedor nao encontrado"));
     }
 
     public void delete(String registry) {
