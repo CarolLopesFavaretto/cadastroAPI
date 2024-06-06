@@ -52,6 +52,15 @@ Response:
 statusCode: 200
 ```
 
+Error:
+```json
+{
+  "statusCode": 400,
+  "timestamp": "2024-06-06T21:05:15.301+00:00",
+  "message": "Tipo de contrato invalido: CLTI",
+  "description": "uri=/sellers;client=0:0:0:0:0:0:0:1"
+}
+```
 
 ```markdown
 GET /sellers/{id} - Busca vendedores por id
@@ -74,10 +83,10 @@ statusCode: 200
 Error:
 ```json
 {
-    "timestamp": "2024-06-06T20:13:22.985+00:00",
-    "status": 404,
-    "error": "Not Found",
-    "path": "/sellers/update/7f7e1a3a-3fc4-4ad2-be8b-4f056adf2abc-C"
+  "statusCode": 400,
+  "timestamp": "2024-06-06T21:05:56.623+00:00",
+  "message": "Vendedor nao encontrado",
+  "description": "uri=/sellers/20d9c2ca-71b4-46eb-954e-a3e822d6b2f3-CLT"
 }
 ```
 
@@ -110,10 +119,10 @@ statusCode: 200
 Error:
 ```json
 {
-    "timestamp": "2024-06-06T20:13:22.985+00:00",
-    "status": 404,
-    "error": "Not Found",
-    "path": "/sellers/update/7f7e1a3a-3fc4-4ad2-be8b-4f056adf2abc-C"
+  "statusCode": 400,
+  "timestamp": "2024-06-06T21:05:56.623+00:00",
+  "message": "Vendedor nao encontrado",
+  "description": "uri=/sellers/20d9c2ca-71b4-46eb-954e-a3e822d6b2f3-CLT"
 }
 ```
 

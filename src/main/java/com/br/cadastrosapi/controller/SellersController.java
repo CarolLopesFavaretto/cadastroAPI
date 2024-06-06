@@ -13,7 +13,7 @@ public class SellersController {
     @Autowired
     private SellersService service;
 
-    @PostMapping("/sellers")
+    @PostMapping
     public ResponseEntity<Sellers> save(@RequestBody Sellers sellers) {
         return service.save(sellers);
     }
