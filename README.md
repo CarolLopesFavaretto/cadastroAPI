@@ -32,7 +32,7 @@ Request:
 ```json
 {
   "name": "Caroline",
-  "cpf": "412.465.328-08",
+  "cpf": "000.000.000-08",
   "email": "caroline@hotmail.com",
   "contractType": "CLT"
 }
@@ -43,7 +43,7 @@ Response:
 {
   "registry": "20d9c2ca-71b4-46eb-954e-a3e822d6b2f3-CLT",
   "name": "Caroline",
-  "cpf": "412.465.328-08",
+  "cpf": "000.000.000-08",
   "email": "caroline@hotmail.com",
   "contractType": "CLT"
 }
@@ -62,7 +62,7 @@ Response:
 {
   "registry": "20d9c2ca-71b4-46eb-954e-a3e822d6b2f3-CLT",
   "name": "Caroline",
-  "cpf": "412.465.328-08",
+  "cpf": "000.000.000-08",
   "email": "caroline@hotmail.com",
   "contractType": "CLT"
 }
@@ -73,6 +73,48 @@ statusCode: 200
 
 Error:
 ```json
+{
+    "timestamp": "2024-06-06T20:13:22.985+00:00",
+    "status": 404,
+    "error": "Not Found",
+    "path": "/sellers/update/7f7e1a3a-3fc4-4ad2-be8b-4f056adf2abc-C"
+}
+```
 
+```markdown
+PUT /sellers/update/{id} - Atualizacao do cadastro de vendedores
+```
+Request:
+```json
+{
+  "name": "Caroline",
+  "cpf": "000.000.000-08",
+  "email": "caroline@hotmail.com",
+  "contractType": "CLT"
+}
+```
+
+Response:
+```json
+{
+  "registry": "20d9c2ca-71b4-46eb-954e-a3e822d6b2f3-CLT",
+  "name": "Caroline",
+  "cpf": "000.000.000-08",
+  "email": "caroline@hotmail.com",
+  "contractType": "CLT"
+}
+```
+```
+statusCode: 200
+```
+Error:
+```json
+{
+    "timestamp": "2024-06-06T20:13:22.985+00:00",
+    "status": 404,
+    "error": "Not Found",
+    "path": "/sellers/update/7f7e1a3a-3fc4-4ad2-be8b-4f056adf2abc-C"
+}
+```
 
 
